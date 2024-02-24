@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="board-container" id="board-container">
+        <h2 id="playersTurnText"></h2>
+        <div class="gameboard" id="gameboard">
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+            <div class="field"></div>
+        </div>
+    </div>
+    
+
+    <div class="xWon hidden" id="xWon">
+        <div class="container">
+            <h1 class="text">Player X Won!</h1>
+            <button class="button" onclick="newGame()">return to game page</button>
+        </div>
+    </div>
+
+    <div class="oWon hidden" id="oWon">
+        <div class="container">
+            <h1 class="text">Player O Won!</h1>
+            <button class="button" onclick="newGame()">return to game page</button>
+        </div>
+    </div>
+
+    <div class="draw hidden" id="draw">
+        <div class="container">
+            <h1 class="text">Draw</h1>
+            <button class="button" onclick="newGame()">return to game page</button>
+        </div>
+    </div>
+</body>
+</html>
