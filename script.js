@@ -3,9 +3,8 @@ const boardContainer = document.getElementById('board-container');
 const playersTurnText = document.getElementById('playersTurnText');
 const board = document.getElementById('gameboard');
 const fields = document.querySelectorAll('.field');
-const xWon = document.getElementById('xWon');
-const oWon = document.getElementById('oWon');
-const draw = document.getElementById('draw');
+const gameOverScreen = document.getElementById('gameOverScreen');
+const whoWonText = document.getElementById('whoWonText');
 
 playersTurnText.innerText = playersTurn + " 's turn";
 
@@ -17,7 +16,6 @@ function click(field) {
     if (!field.classList.contains('X')
         && !field.classList.contains('O')) {
             field.classList.add(playersTurn);
-            console.log("Who won returns: " + whoWon());
             playerWon(whoWon());
         if (playersTurn == 'X') playersTurn = 'O'; else playersTurn = 'X';
         playersTurnText.innerText = playersTurn + " 's turn";
@@ -44,9 +42,6 @@ function whoWon() {
     fields.forEach(field => {
         if (field.classList.contains('X') || field.classList.contains('O')) usedFields++;
     });
-
-    console.log("Used fields: " + usedFields);
-    console.log("Fields.length: " + fields.length);
     if (usedFields == fields.length) {
         return 3;
     }
@@ -56,21 +51,22 @@ function whoWon() {
 
 function playerWon(player) {
     if (player == 1) {
-        xWon.classList.remove('hidden');
+        gameOverScreen.classList.remove('hidden');
+        whoWonText.innerText = "Player X Won!"
         boardContainer.classList.add('hidden');
     } else if (player == 2) {
-        oWon.classList.remove('hidden');
+        gameOverScreen.classList.remove('hidden');
+        whoWonText.innerText = "Player O Won!"
         boardContainer.classList.add('hidden');
     } else if(player == 3) {
-        draw.classList.remove('hidden');
+        gameOverScreen.classList.remove('hidden');
+        whoWonText.innerText = "Draw"
         boardContainer.classList.add('hidden');
     }
 }
 
 function newGame() {
-    xWon.classList.add('hidden');
-    oWon.classList.add('hidden');
-    draw.classList.add('hidden');
+    gameOverScreen.classList.add('hidden');
 
     fields.forEach(field => {
         field.classList.remove('X');

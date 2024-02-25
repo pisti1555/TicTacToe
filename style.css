@@ -23,6 +23,7 @@ body {
     width: 600px;
     height: 600px;
     padding: 10px;
+    background-color: #0000005e;
     border: 1px solid aliceblue;
     border-radius: 20px;
     backdrop-filter: blur(20px);
@@ -34,18 +35,19 @@ body {
 
 .gameboard {
     position: relative;
-    margin: 10px;
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     width: fit-content;
     height: fit-content;
+    border: 1px solid aliceblue;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .field {
     position: relative;
     border: 1px solid aliceblue;
-    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,47 +63,40 @@ body {
     content: '';
     position: absolute;
     width: 70%;
-    height: 5px;
-    background-color: transparent;
+    height: 10px;
+    background-color: white;
     top: 50%;
     left: 50%;
+}
+
+.X:before {
     transform: translate(-50%, -50%) rotate(45deg);
-    background-color: white;
 }
 
 .X::after {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-.O::before,
 .O::after {
     content: '';
     position: absolute;
-    width: 70%;
-    height: 5px;
+    border-radius: 50%;
+    border: 10px solid white; 
+    width: 50%;
+    height: 50%;
     background-color: transparent;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%;
 }
 
-.O::before {
-    width: 70%;
-    height: 70%;
-    border: 5px solid white; 
-}
-
-.O::after {
-    background-color: transparent;
-}
 
 .hidden {
     display: none;
     visibility: hidden;
 }
 
-.xWon, .oWon, .draw {
+.gameOver {
     margin: 0;
     position: absolute;
     width: 100%;
@@ -122,7 +117,7 @@ body {
     height: 40%;
     border: 1px solid aliceblue;
     border-radius: 30px;
-    background: none;
+    background-color: #0000005e;
     backdrop-filter: blur(20px);
 
     font-family: Franklin Gothic;
@@ -151,8 +146,8 @@ body {
 
 .button:hover,
 .button:active {
-    background: #1739fa;
+    background: #0032fb6b;
     color: #ffff;
     text-shadow: 2px 2px 10px #ffff;
-    box-shadow: 5px 5px 20px 5px #237ff7;
+    box-shadow: 5px 5px 20px 5px #0032fb6b;
 }
